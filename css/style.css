@@ -1,0 +1,2117 @@
+/* Created by - Aye Chan Aung Thwin */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* https://www.dafont.com/seven-segment.font */
+@font-face {
+    font-family: SevenSegFont;
+    src: url(../font/DSEG7ModernMini-Bold.ttf);
+}
+
+
+/* https://www.1001fonts.com/short-descenders-fonts.html */
+@font-face {
+    font-family: DaggerSquareFont;
+    src: url(../font/coolvetica\ rg.otf);
+}
+
+/* https://all-free-download.com/font/download/zado_6919034.html */
+@font-face {
+    font-family: ZadoFont;
+    src: url(../font/Zado.ttf);
+}
+
+/* https://www.dafont.com/astronomus.font */
+@font-face {
+    font-family: AstroFont;
+    src: url(../font/Astronomus.ttf);
+}
+
+@font-face {
+    font-family: SquareOneFont;
+    src: url(../font/Square\ One.ttf);
+}
+
+@font-face {
+    font-family: SweetSmileFont;
+    src: url(../font/Sweets\ Smile.ttf);
+}
+
+@font-face {
+    font-family: BouncyFont;
+    src: url(../font/Bouncy-PERSONAL_USE_ONLY.otf);
+}
+
+@font-face {
+    font-family: GameOfSquidsFont;
+    src: url(../font/Game\ Of\ Squids.ttf);
+}
+
+:root {
+    --cl-body: rgb(84, 85, 84);
+
+    --main-container-size: 300;
+
+    /* const */
+    --shadow-deg: 135;
+
+    /* 
+    For Gradient Color
+    */
+    --cl-black-dark: #121212;
+    --cl-black-light: #363636;
+
+    --cl-white-light: #E2E4F3;
+    --cl-white-dark: #888;
+
+    --bs-in: inset 8px 0px 8px 1px black;
+    --bs-out: 0px 0px 8px 1px black;
+
+    --bs-in-sm: inset 2px 0px 2px 1px black;
+    --bs-out-sm: 0px 0px 1px 1px black;
+
+    --ts-text-border-size: 1;
+    /* text-shadow i.e., text-border-dark */
+    /* --ts-text-border-dark: 
+    -1px -1px 0 black,
+    0   -1px 0 black,
+    1px -1px 0 black,
+    1px  0   0 black,
+    1px  1px 0 black,
+    0    1px 0 black,
+    -1px  1px 0 black,
+    -1px  0   0 black; */
+    --ts-text-border-dark: 
+    calc(var(--ts-text-border-size) * -1px) calc(var(--ts-text-border-size) * -1px) 0 black,
+    0   calc(var(--ts-text-border-size) * -1px) 0 black,
+    calc(var(--ts-text-border-size) * 1px) calc(var(--ts-text-border-size) * -1px) 0 black,
+    calc(var(--ts-text-border-size) * 1px)  0   0 black,
+    calc(var(--ts-text-border-size) * 1px)  calc(var(--ts-text-border-size) * 1px) 0 black,
+    0    calc(var(--ts-text-border-size) * 1px) 0 black,
+    calc(var(--ts-text-border-size) * -1px)  calc(var(--ts-text-border-size) * 1px) 0 black,
+    calc(var(--ts-text-border-size) * -1px)  0   0 black;
+
+    --bs-top-shadow-size: 6px;
+
+    --bs-in-top: inset -1px -1px var(--bs-top-shadow-size) var(--cl-black-dark),
+    inset 0 -1px var(--bs-top-shadow-size) var(--cl-black-dark),
+    inset 1px -1px var(--bs-top-shadow-size) var(--cl-black-dark),
+    inset 1px  0   var(--bs-top-shadow-size) var(--cl-black-dark),
+    inset 1px  1px var(--bs-top-shadow-size) var(--cl-black-dark),
+    inset 0 1px var(--bs-top-shadow-size) var(--cl-black-dark),
+    inset -1px 1px var(--bs-top-shadow-size) var(--cl-black-dark),
+    inset -1px 0 var(--bs-top-shadow-size) var(--cl-black-dark);
+
+    --bs-out-top: -1px -1px var(--bs-top-shadow-size) var(--cl-black-dark),
+    0 -1px var(--bs-top-shadow-size) var(--cl-black-dark),
+    1px -1px var(--bs-top-shadow-size) var(--cl-black-dark),
+    1px  0   var(--bs-top-shadow-size) var(--cl-black-dark),
+    1px  1px var(--bs-top-shadow-size) var(--cl-black-dark),
+    0 1px var(--bs-top-shadow-size) var(--cl-black-dark),
+    -1px 1px var(--bs-top-shadow-size) var(--cl-black-dark),
+    -1px 0 var(--bs-top-shadow-size) var(--cl-black-dark);
+
+    /* box-shadow */
+    --bs-clock-hands: inset -1px -1px 4px var(--cl-white-dark),
+    inset 0   -1px 4px var(--cl-white-dark),
+    inset 1px -1px 4px var(--cl-white-dark),
+    inset 1px  0   4px var(--cl-white-dark),
+    inset 1px  1px 4px var(--cl-white-dark),
+    inset 0    1px 4px var(--cl-white-dark),
+    inset -1px  1px 4px var(--cl-white-dark),
+    inset -1px  0   4px var(--cl-white-dark);
+
+    --cl-clock-hand-head-inner: #BAC9A2;
+
+    /* heading */
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-h4: 0.7rem;
+    --fs-h5: 0.501rem;
+    --fs-h6: 0.4167rem;
+    --fs-body: 1rem;
+
+    /* fonts */
+    --ff-dagger-square-font: DaggerSquareFont;
+    --ff-dot-font: ZadoFont;
+    --ff-square-one-font: SquareOneFont;
+    --ff-seven-seg-font: SevenSegFont;
+    --ff-astro-font: AstroFont;
+    --ff-sweet-smile-font: SweetSmileFont;
+    --ff-bouncy-font: BouncyFont;
+    --ff-game-of-squids-font: GameOfSquidsFont;
+
+    --bt-seg-border-size: 6px solid var(--cl-white-light);
+    --bt-arc-border-size: 0.0625rem solid var(--cl-white-light);
+
+    --bt-border-size: 0.0625rem;
+
+    --swap-rotation: 0;
+    --input-design-border-radius: 20;
+    --span-text-font: var(--ff-dagger-square-font);
+    --input-font: var(--ff-seven-seg-font);
+
+    --btn-gradient-degree: 0;
+    --btn-scale: 1;
+}
+
+@media (min-width: 480px) {
+    :root {
+        --main-container-size: 500;
+
+        --bs-in: inset 12px 12px 12px 1px black;
+        --bs-out: 0px 0px 12px 1px black;
+
+        --bs-in-sm: inset 3px 0px 3px 1px black;
+        --bs-out-sm: 0px 0px 3px 1px black;
+
+        /* heading */
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-h4: 1rem;
+        --fs-h5: 0.75rem;
+        --fs-h6: 0.5rem;
+        --fs-body: 0.5rem;
+
+        --bt-seg-border-size: 8px solid var(--cl-white-light);
+        --bt-arc-border-size: 0.125rem solid var(--cl-white-light);
+
+        --bt-border-size: 0.125rem;
+    }
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); }
+h6 { font-size: var(--fs-h6); }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+
+    height: 100vh;
+    /* overflow: hidden; */
+
+    background: var(--cl-body);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input:focus {
+    /* outline: none; */
+    cursor: none;
+}
+
+span, .text-design {
+    font-family: var(--span-text-font);
+    color: white;
+    text-shadow: var(--ts-text-border-dark);
+
+    font-size: large;
+}
+
+.main-container {
+    position: relative;
+
+    width: calc(var(--main-container-size) * 1px);
+    height: calc(var(--main-container-size) * 1px);
+
+    border: 1px solid black;
+    border-radius: 50%;
+
+    background: radial-gradient(circle, var(--cl-black-dark) 50.5%, var(--cl-black-light) 60.5%);
+}
+
+.main-container .title {
+    position: absolute;
+
+    width: 100%;
+
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%, 0);
+    text-align: center;
+
+    margin: 10px auto;
+    font-size: x-large;
+
+    font-family: var(--ff-dagger-square-font);
+    /* border: 1px solid violet; */
+}
+
+.input-container {
+    position: absolute;
+
+    width: 65%;
+    height: 65%;
+
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(calc(var(--swap-rotation) * 1deg));
+
+    /* background: radial-gradient(circle, var(--cl-black-dark) 66.5%, var(--cl-black-light) 73.5%);
+    border: 5px solid var(--cl-black-dark);
+    box-shadow: var(--bs-in-top);
+    border-radius: 50%; */
+}
+
+.input-container .swap-container .dec-hr-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    vertical-align: sub;
+
+    width: 100%;
+    height: 40%;
+
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(calc(var(--swap-rotation) * -1deg));
+
+    /* border: 1px solid violet; */
+    /* border-radius: 40% 40% 40% 40%;  */
+}
+
+.input-design {
+    background:
+		linear-gradient(90deg, var(--cl-black-dark) 5px, transparent 1%) center,
+		linear-gradient(var(--cl-black-dark) 5px, transparent 1%) center,
+        var(--cl-black-light);
+	background-size: 6px 6px;
+    color: white;
+
+    border-radius: calc(var(--input-design-border-radius) * 1%);
+    box-shadow: var(--bs-out-sm);
+
+    font-family: var(--input-font);
+    font-size: x-large;
+    text-shadow: var(--ts-text-border-dark);
+
+    text-align: center;
+}
+
+.no-design-btn {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.btn-design-black-ccl {
+    box-shadow: var(--bs-in-sm);
+    background: radial-gradient(circle, var(--cl-black-dark) 60.5%, var(--cl-black-light) 40.5%);
+}
+
+.btn-design-black-rect {
+    box-shadow: var(--bs-in-sm);
+    background: linear-gradient(calc(var(--btn-gradient-degree) * 1deg), rgb(8, 8, 8) 44%, rgb(24, 24, 24) 77%);
+}
+
+.input-container .swap-container .swap-btn {
+    position: absolute;
+
+    width: 25%;
+    height: 25%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(calc(var(--swap-rotation) * -1deg)) scale(var(--btn-scale));
+
+    border-radius: 50%;
+}
+
+.input-container .swap-container .swap-btn:hover {
+    /* background: radial-gradient(circle, var(--cl-black-dark) 66.5%, var(--cl-black-light) 73.5%); */
+    background: radial-gradient(circle, var(--cl-black-dark) 50.5%, var(--cl-black-light) 60.5%);
+}
+
+.input-container .swap-container .swap-btn:active {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    --btn-scale: 0.9;
+    /* transform: translate(-50%, -50%) rotate(calc(var(--swap-rotation) * -1deg)) scale(0.9); */
+}
+
+.swap-text-size {
+    font-size: x-large;
+}
+
+.swap-font-family {
+    font-family: var(--ff-game-of-squids-font);
+}
+
+.dec-hr-container .dec-hr-text {
+    position: absolute;
+
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dec-hr-container .dec-hr {
+    position: absolute;
+
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 85%;
+    height: 40%;
+
+    --input-design-border-radius: 0;
+}
+
+.input-container .swap-container .hr-min-sec-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: 40%;
+
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -100%) rotate(calc(var(--swap-rotation) * -1deg));
+
+    /* border: 1px solid yellow; */
+}
+
+.hr-min-sec-container .time-section {
+    position: absolute;
+    display: inline-block;
+
+    width: 30%;
+    height: 100%;
+
+    /* border: 1px solid violet; */
+}
+
+.time-section span {
+    position: absolute;
+
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hr-min-sec-container .span-text {
+    --colon-position: 50;
+    position: absolute;
+
+    top: 59%;
+    left: calc(var(--colon-position) * 1%);
+    transform: translate(calc(var(--colon-position) * -1%), -50%);
+
+    font-size: x-large;
+}
+
+.hr-min-sec-container .span-text.span-text-pos-1 {
+    --colon-position: 32;
+}
+
+.hr-min-sec-container .span-text.span-text-pos-2 {
+    --colon-position: 68;
+}
+
+.hr-min-sec-container .time-section .time-input {
+    position: absolute;
+    display: block;
+    width: 50%;
+    height: 40%;
+
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 30%;
+    font-size: x-large;
+}
+
+.hr-min-sec-container .hr-div {
+    top: 50%;
+    left: 0%;
+    transform: translate(0%, -50%);
+}
+
+.hr-min-sec-container .sec-div {
+    top: 50%;
+    left: 100%;
+    transform: translate(-100%, -50%);
+}
+
+.calculate-btn-container .calculate-btn {
+    position: absolute;
+    bottom: 0%;
+
+    width: 20%;
+    height: 15%;
+
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--btn-scale));
+
+    border: 1px solid black;
+    border-radius: 25%;
+}
+
+.calculate-btn-container .calculate-btn:hover {
+    --btn-gradient-degree: 180;
+}
+
+.calculate-btn-container .calculate-btn:active {
+    --btn-scale: 0.9;
+}
+
+/* Clock Face  */
+.clock {
+    position: absolute;
+
+    top: 100%;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    box-shadow: var(--bs-in-sm);
+    background: radial-gradient(circle, var(--cl-black-dark) 66.5%, var(--cl-black-light) 73.5%);
+
+    z-index: 3;
+}
+
+.clock::before {
+    content: '';
+    position: absolute;
+
+    width: 85%;
+    height: 85%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    border: 5px solid black;
+
+    box-shadow: var(--bs-out);
+    background: radial-gradient(circle, var(--cl-black-dark) 67.5%, var(--cl-black-light) 75%);
+    background: var(--cl-body);
+
+    z-index: 1;
+}
+
+.clock:after {
+    content: '';
+    position: absolute;
+
+    width: 7%;
+    height: 7%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    box-shadow: var(--bs-in-sm);
+    background: radial-gradient(circle, #AAA 30%, #121212 70%);
+
+    z-index: 1000;
+}
+
+/* Large Segments */
+.clock .seg-container {
+    --shadow-deg-seg: 0;
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    /* border: 1px solid yellow; */
+    z-index: 3;
+}
+
+.seg-design {
+    position: absolute;
+
+    top: 1%;
+
+    width: 11.5%;
+    height: 11.5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(0 0, 100% 0, 92.5% 100%, 7.5% 100%);
+    border-radius: 20% 20% 25% 25%;
+    box-shadow: var(--bs-in-sm);
+    background: var(--cl-black-light);
+    background: linear-gradient(calc((1 * var(--shadow-deg-seg) + var(--shadow-deg)) * 1deg), var(--cl-black-dark) 44%, var(--cl-black-light) 77%);
+    
+    overflow: hidden;
+}
+
+.seg-design::before {
+    content: '';
+    position: absolute;
+
+    top: 15%;
+
+    width: 90%;
+    height: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(0 0, 100% 0, 92.5% 100%, 7.5% 100%);
+    border-radius: 20% 20% 25% 25%;
+    background: var(--cl-black-light);
+}
+
+.seg-design::after {
+    content: '';
+    position: absolute;
+
+    top: 17.5%;
+
+    width: 85%;
+    height: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(0 0, 100% 0, 92.5% 100%, 7.5% 100%);
+    border-radius: 20% 20% 25% 25%;
+    background: linear-gradient(calc((-1 * var(--shadow-deg-seg) + var(--shadow-deg)) * 1deg), var(--cl-black-dark) 44%, var(--cl-black-light) 77%);
+}
+
+.seg-container .lg-seg-container {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 4;
+}
+
+.lg-seg-rot {
+    position: inherit;
+
+    width: 100%;
+    height: 100%;
+
+    --var-lg-seg-rotation: 0;
+    transform: rotate(calc(var(--var-lg-seg-rotation) * 1deg));
+    --shadow-deg-seg: var(--var-lg-seg-rotation);
+}
+
+.lg-seg-container .lg-seg-rot-2 { --var-lg-seg-rotation: 90; }
+.lg-seg-container .lg-seg-rot-3 { --var-lg-seg-rotation: 180; }
+.lg-seg-container .lg-seg-rot-4 { --var-lg-seg-rotation: 270; }
+
+.lg-seg-container .lg-seg-rot-3 .shortern-height,
+.lg-seg-container .lg-seg-rot-4 .shortern-height {
+    height: 9.5%;
+}
+
+/* Medium Segments */
+.seg-design.md-seg {
+    width: 7%;
+}
+
+.seg-container .md-seg-container {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 4;
+}
+
+.md-seg-rot {
+    position: inherit;
+
+    width: 100%;
+    height: 100%;
+
+    --var-md-seg-rotation: 30;
+    transform: rotate(calc(var(--var-md-seg-rotation) * 1deg));
+    --shadow-deg-seg: var(--var-md-seg-rotation);
+}
+
+.md-seg-container .md-seg-rot-2 { --var-md-seg-rotation: 60; }
+.md-seg-container .md-seg-rot-3 { --var-md-seg-rotation: 120; }
+.md-seg-container .md-seg-rot-4 { --var-md-seg-rotation: 150; }
+.md-seg-container .md-seg-rot-5 { --var-md-seg-rotation: 210; }
+.md-seg-container .md-seg-rot-6 { --var-md-seg-rotation: 240; }
+.md-seg-container .md-seg-rot-7 { --var-md-seg-rotation: 300; }
+.md-seg-container .md-seg-rot-8 { --var-md-seg-rotation: 330; }
+
+/* Medium Segments with different clipPath. */
+.md-seg-rot-2 .seg-design.md-seg,
+.md-seg-rot-6 .seg-design.md-seg {
+    clip-path: polygon(0 0, 100% 0, 92.5% 100%, 7.5% 70%);
+}
+
+.md-seg-rot-3 .seg-design.md-seg,
+.md-seg-rot-7 .seg-design.md-seg {
+    clip-path: polygon(0 0, 100% 0, 92.5% 70%, 7.5% 100%);
+}
+
+/* 
+Small Segments 
+Rotation is done through sec-segments-design.js
+*/
+.seg-design.sm-seg {
+    top: 2.5%;
+    width: 0.5%;
+    height: 4.5%;
+    border: 1px solid var(--cl-white-light);
+}
+
+.seg-container .sm-seg-container {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 3;
+}
+
+.sm-seg-rot {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+}
+
+/* Bluetooth */
+.clock .bt-meter-container {
+    --bt-meter-rotation: -60;
+
+    position: absolute;
+
+    width: 50%;
+    height: 50%;
+
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(calc(var(--bt-meter-rotation) * 1deg));
+
+    z-index: 3;
+}
+
+/* Bluetooth meter cover */
+.bt-meter-container .bt-meter {
+    --bt-meter-size: 62;
+    --bt-meter-outter-size: 92;
+
+    position: absolute;
+
+    width: calc(var(--bt-meter-size) * 1%);
+    height: calc(var(--bt-meter-size) * 1%);
+
+    top: 47%; /* default: 50*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    box-shadow: var(--bs-in-sm);
+    background: radial-gradient(circle, var(--cl-black-light) 65%, var(--cl-black-dark) 70%);
+}
+
+/* Meter: Outter Shadow */
+.bt-meter-container .bt-meter::before {
+    content: '';
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    box-shadow: var(--bs-out);
+}
+
+.bt-meter-container .bt-meter::after {
+    content: '';
+    position: absolute;
+
+    width: calc(var(--bt-meter-outter-size) * 1%);
+    height: calc(var(--bt-meter-outter-size) * 1%);
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    /* box-shadow: var(--bs-in-sm); */
+    background: radial-gradient(circle, var(--cl-black-dark) 60%, var(--cl-black-light) 85%);
+}
+
+/* 20, 40... 100 digits */
+.bt-digits-container {
+    --number-of-digits: 5;
+    --bt-digit-degree-gap: calc(360 / var(--number-of-digits));
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 50%;
+    left: 50%;
+    /* Exact reverse rotation with parent div i.e., looks as if there's no rotation! */
+    transform: translate(-50%, -50%) rotate(calc(var(--bt-meter-rotation) * -1deg));
+
+    z-index: 4;
+}
+
+.bt-digits-container .bt-digit-rot {
+    --bt-digit-rotation: var(--bt-digit-degree-gap);
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(calc(var(--bt-digit-rotation) * 1deg));
+}
+
+.bt-digit-rot .bt-digit {
+    position: absolute;
+
+    width: 25%;
+    height: 25%;
+
+    top: 5%;
+
+    left: 50%;
+    transform-origin: center;
+    transform: translateX(-50%);
+
+    font-family: var(--ff-dagger-square-font);
+    text-shadow: var(--ts-text-border-dark);
+
+    font-size: var(--fs-h4);
+
+    text-align: center;
+    color: var(--cl-white-light);
+}
+
+.bt-digit-rot .bt-digit::after {
+    content:'';
+    display: block;
+    position: absolute;
+
+    width: 10%;
+    height: 10%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    box-shadow: var(--ts-text-border-dark);
+    border-radius: 50%;
+
+    background: var(--cl-white-light);
+}
+
+.bt-digit-rot.bt-digit-rot-2 { --bt-digit-rotation: calc(var(--bt-digit-degree-gap) * 2); }
+.bt-digit-rot.bt-digit-rot-3 { --bt-digit-rotation: calc(var(--bt-digit-degree-gap) * 3); }
+.bt-digit-rot.bt-digit-rot-4 { --bt-digit-rotation: calc(var(--bt-digit-degree-gap) * 4); }
+.bt-digit-rot.bt-digit-rot-5 { --bt-digit-rotation: calc(var(--bt-digit-degree-gap) * 5); }
+
+.bt-digit-rot .bt-digit h4 {
+    /* This removes auto padding from h4. */
+    margin: auto;
+}
+
+.bt-digit-rot .bt-digit .rotate-num {
+    /* border: 1px solid red; */
+    font-size: var(--fs-h4);
+    transform: rotate(180deg);
+}
+
+/* Bluetooth segment container */
+.bt-digits-container .bt-seg-container {
+    --bt-seg-size: 98;
+
+    --number-of-bt-seg: 20;
+    --bt-seg-degree-gap: calc(360 / var(--number-of-bt-seg));
+    --bt-seg-arc-rotation: 45;
+
+    position: absolute;
+
+    width: 50%;
+    height: 50%;
+
+    top: 50%;
+    left: 50%;
+    box-shadow: var(--bs-out);
+    transform: translate(-50%, -50%) rotate(calc(var(--bt-seg-arc-rotation) * 1deg));
+
+    border-radius: 50%;
+}
+
+.bt-digits-container .bt-seg-container::before {
+    content: '';
+    position: absolute;
+
+    width: calc(var(--bt-seg-size) * 1%);
+    height: calc(var(--bt-seg-size) * 1%);
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    border: var(--bt-seg-border-size);
+
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+
+.bt-digits-container .bt-seg-container::after {
+    content: '';
+    position: absolute;
+
+    width: calc(var(--bt-seg-size) * 1%);
+    height: calc(var(--bt-seg-size) * 1%);
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(54deg);
+
+    border-radius: 50%;
+    border: var(--bt-seg-border-size);
+
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+
+.bt-seg-container .bt-seg-rot {
+    --bt-seg-rotation: calc(var(--bt-seg-arc-rotation) * -1); /* Reset Degree Position */
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(calc(var(--bt-seg-rotation) * 1deg));
+
+    z-index: 1;
+
+    overflow: hidden;
+}
+
+/* Cheat: cover with --cl-black-dark to make segments */
+.bt-seg-rot .bt-seg {
+    position: absolute;
+
+    width: 3.5%;
+    height: 100%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* border: 1px solid blue; */
+    background: var(--cl-black-dark);
+}
+
+.bt-seg-container .bt-seg-rot-2 { --bt-seg-rotation: calc((var(--bt-seg-arc-rotation) * -1) + (var(--bt-seg-degree-gap) * 1)) }
+.bt-seg-container .bt-seg-rot-3 { --bt-seg-rotation: calc((var(--bt-seg-arc-rotation) * -1) + (var(--bt-seg-degree-gap) * 2)) }
+.bt-seg-container .bt-seg-rot-4 { --bt-seg-rotation: calc((var(--bt-seg-arc-rotation) * -1) + (var(--bt-seg-degree-gap) * 3)) }
+.bt-seg-container .bt-seg-rot-5 { --bt-seg-rotation: calc((var(--bt-seg-arc-rotation) * -1) + (var(--bt-seg-degree-gap) * 4)) }
+.bt-seg-container .bt-seg-rot-6 { --bt-seg-rotation: calc((var(--bt-seg-arc-rotation) * -1) + (var(--bt-seg-degree-gap) * 5)) }
+.bt-seg-container .bt-seg-rot-7 { --bt-seg-rotation: calc((var(--bt-seg-arc-rotation) * -1) + (var(--bt-seg-degree-gap) * 6)) }
+.bt-seg-container .bt-seg-rot-8 { --bt-seg-rotation: calc((var(--bt-seg-arc-rotation) * -1) + (var(--bt-seg-degree-gap) * 7)) }
+.bt-seg-container .bt-seg-rot-9 { --bt-seg-rotation: calc((var(--bt-seg-arc-rotation) * -1) + (var(--bt-seg-degree-gap) * 8)) }
+.bt-seg-container .bt-seg-rot-10 { --bt-seg-rotation: calc((var(--bt-seg-arc-rotation) * -1) + (var(--bt-seg-degree-gap) * 9)) }
+
+/* Bluetooth Arc */
+.bt-seg-container .bt-arc {
+    --bt-arc-rotation: 0;
+    --bt-arc-size: 55;
+
+    position: absolute;
+
+    width: calc(var(--bt-arc-size) * 1%);
+    height: calc(var(--bt-arc-size) * 1%);
+
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(calc(var(--bt-arc-rotation) * 1deg));
+
+    border-radius: 50%;
+    border: var(--bt-arc-border-size);
+
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+
+    z-index: 1;
+}
+
+.bt-arc.bt-arc-rot {
+    --bt-arc-rotation: 180
+}
+
+.bt-seg-container .bt-arc::after {
+    content:'';
+    position: absolute;
+
+    width: 5%;
+    height: 130%;
+
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(-45deg);
+
+    background: var(--cl-black-dark);
+}
+
+.bt-arc .bt-container {
+    --bt-rotation: 135;
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    transform: 
+    rotate(
+        calc(
+        (
+        var(--bt-rotation) 
+        + 
+        (180 - var(--bt-arc-rotation))
+        ) 
+        * 1deg)
+        );
+    /* rotate(calc((var(--bt-arc-rotation) - 45) * 1deg)); */
+    /* rotate(calc((135 - (var(--bt-arc-rotation) - (var(--bt-arc-rotation) * -1))) * 1deg )); */
+
+    z-index: 1;
+}
+
+/* Bluetooth */
+.bt-design {
+    --bt-size: 75;
+
+    position: absolute;
+
+    height: calc(var(--bt-size) * 1%);
+    width: calc(var(--bt-size) * 1%);
+
+    border: var(--bt-border-size) solid transparent;
+    border-left-color: var(--cl-white-light);
+    position: relative;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -50%);
+
+    z-index: 1;
+}
+
+.bt-design::before,
+.bt-design:after {
+  content: '';
+  position: absolute;
+
+  height: 80%;
+  width: 34%;
+  border: var(--bt-border-size) solid var(--cl-white-light);
+}
+
+.bt-design::before {
+    border-left-width: 0;
+    border-bottom-width: 0;
+    transform-origin: 0 0;
+    transform: rotate(45deg);
+}
+
+.bt-design:after {
+    bottom: 0;
+    border-left-width: 0;
+    border-top-width: 0;
+    transform-origin: left bottom;
+    transform: rotate(-45deg);
+}
+
+.clock .shape-container {
+    position: absolute;
+
+    width: 83%;
+    height: 83%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    /* border: 1px solid yellow; */
+
+    box-shadow: var(--bg-shadow-in);
+
+    z-index: 1;
+    
+    overflow: hidden;
+}
+
+.shape-container .left-container {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+    transform: rotate(-18deg);
+
+    background: radial-gradient(circle, var(--cl-black-dark) 68.5%, var(--cl-black-light) 72.5%);
+
+    z-index: -1;
+}
+
+.shape-container .left-container::before {
+    content:'';
+    position: absolute;
+
+    width: 82%;
+    height: 82%;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    box-shadow: var(--bs-out);
+
+    background: var(--cl-white-dark);
+}
+
+.shape-container .left-container::after {
+    content:'';
+    position: absolute;
+
+    width: 100%;
+    height: 50%;
+
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(180deg);
+
+    box-shadow: var(--bs-out-sm);
+    
+    background: black;
+}
+
+.left-container .alm-sig-container {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    /* border: 1px solid yellow; */
+}
+
+.alm-sig-container h5 {
+    --alm-sig-rotation: 0;
+
+    position: absolute;
+
+    margin: 0 auto;
+
+    padding-top: 3%;
+
+    width: 100%;
+    height: 50%;
+
+    text-align: center;
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(calc(var(--alm-sig-rotation) * 1deg));
+
+    text-shadow: var(--ts-text-border-dark);
+
+    color: var(--cl-white-light);
+}
+
+.alm-sig-container h5 {
+    font-family: var(--ff-dagger-square-font);
+}
+
+.alm-sig-container h5:nth-child(1) {
+    --alm-sig-rotation: -80;
+}
+
+.alm-sig-container h5:nth-child(2) {
+    --alm-sig-rotation: -68;
+}
+
+.left-container .left-seg-container {
+    position: absolute;
+
+    width: 85%;
+    height: 85%;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    border: 1px solid black;
+
+    overflow: hidden;
+}
+
+.left-container .left-seg-container::before {
+    content: '';
+    position: absolute;
+
+    width: 82%;
+    height: 82%;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    box-shadow: var(--bs-out-sm);
+    border: 6px solid black;
+
+    background: black;
+    
+}
+
+.left-container .left-seg-container::after {
+    content: '';
+    position: absolute;
+
+    width: 100%;
+    height: 50%;
+
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(182deg);
+
+    /* border-radius: 50%; */
+
+    box-shadow: var(--bs-out-sm);
+    border: 1px solid black;
+
+    background: black;
+    
+}
+
+.left-seg-container .left-seg {
+    position: absolute;
+
+    width: 5%;
+    height: 50%;
+
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(-87deg);
+
+    border: 2px solid black;
+
+    background: var(--cl-white-light);
+}
+
+.left-seg-container .left-seg::after {
+    content: '';
+    position: absolute;
+
+    width: 5%;
+    height: 100%;
+
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(11deg);
+
+    border: 1px solid black;
+
+    background: black;
+}
+
+.shape-container .brand-text-container {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    left: 14%;
+    bottom: 12%;
+
+    transform: rotate(45deg);
+
+    background:
+		linear-gradient(90deg, var(--cl-black-dark) 5px, transparent 1%) center,
+		linear-gradient(var(--cl-black-dark) 5px, transparent 1%) center,
+        var(--cl-black-light);
+	background-size: 6px 6px;
+
+    box-shadow: var(--bs-in-sm);
+}
+
+.brand-text-container .reset-rot {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    transform: rotate(-45deg);
+}
+
+.reset-rot h4 {
+    margin: auto;
+    text-align: right;
+    padding-right: 25%;
+
+    font-family: var(--ff-astro-font);
+    /* var(--ff-dagger-square-font); */
+
+    text-shadow: var(--ts-text-border-dark);
+    color: var(--cl-white-light);
+}
+
+.reset-rot h4:nth-child(1) {
+    padding-top: 50%;
+}
+
+.reset-rot h4:nth-child(2)::after {
+    content:'';
+    position: absolute;
+
+    width: 33%;
+    height: 1.5%;
+
+    top: 61%;
+    left: 42%;
+
+    border: 1px solid black;
+    background: var(--cl-white-light);
+}
+
+.reset-rot h4:nth-child(3) {
+    margin-top: 3%;
+}
+
+.shape-container .top-container {
+    --to-reset-position: -20;
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    left: -3%;
+    bottom: 63%;
+
+    transform: skewX(-30deg);
+
+    border-radius: 7%;
+    box-shadow: var(--bs-in-top);
+    background: var(--cl-black-light);
+}
+
+.shape-container .top-container::before {
+    content:'';
+    position: absolute;
+
+    width: 88.5%;
+    height: 88.5%;
+
+    left: 52%;
+    top: 52.5%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 7%;
+    box-shadow: var(--bs-out-top);
+    background: var(--cl-black-dark);
+}
+
+.shape-container .top-container::after {
+    content:'';
+    position: absolute;
+
+    width: 83%;
+    height: 83%;
+
+    left: 54%;
+    top: 54.5%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 7%;
+    box-shadow: var(--bs-out);
+    border: 2px solid black;
+    /* background: var(--cl-body); */
+}
+
+.top-box {
+    position: absolute;
+
+    width: 83%;
+    height: 83%;
+
+    left: 54%;
+    top: 54.5%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 7%;
+
+    z-index: 1;
+
+    overflow: hidden;
+}
+
+.top-box .min-max-container {
+    /* display: none; */
+    position: absolute;
+    
+    width: 122%;
+    height: 122%;
+
+    top: 120%;
+    left: 128%;
+    transform: skewX(30deg) translate(-50%, -50%);
+
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--cl-black-dark) 67.5%, var(--cl-black-light) 72.5%);
+    /* border: 1px solid yellow; */
+
+    /* z-index: 1; */
+}
+
+.min-max-container .min-max-rot {
+    --min-max-rotation: 0;
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(calc(var(--min-max-rotation) * 1deg));
+
+    border-radius: 50%;
+
+    /* border: 1px solid yellow; */
+}
+
+.min-max-container .min-max-rot::before {
+    content: '';
+    position: absolute;
+
+    width: 80%;
+    height: 80%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(calc(var(--min-max-rotation) * 1deg));
+
+    box-shadow: var(--bs-out);
+    border-radius: 50%;
+
+    border: 12px solid black;
+}
+
+.min-max-container .min-max-rot::after {
+    content: '';
+    position: absolute;
+
+    width: 78%;
+    height: 78%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(calc(var(--min-max-rotation) * 1deg));
+
+    box-shadow: var(--bs-out);
+    border-radius: 50%;
+
+    background: var(--cl-white-light);
+}
+
+.min-max-container .min-max-seg {
+    --min-max-seg-rotation: 0;
+
+    position: absolute;
+
+    width: 1%;
+    height: 79%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(calc(var(--min-max-seg-rotation) * 1deg));
+    
+    background: var(--cl-black-dark);
+}
+
+.min-max-seg.min-max-seg-1 {
+    --min-max-seg-rotation: -7;
+}
+
+.min-max-seg.min-max-seg-2 {
+    --min-max-seg-rotation: 7;
+}
+
+.min-max-seg.min-max-seg-3 {
+    --min-max-seg-rotation: -21;
+}
+
+.min-max-seg.min-max-seg-4 {
+    --min-max-seg-rotation: 21;
+}
+
+.min-max-container .inner-circle {
+    position: absolute;
+
+    width: 73%;
+    height: 73%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    /* border: 1px solid yellow; */
+
+    background: var(--cl-black-dark);
+}
+
+.min-max-container .inner-circle::before {
+    content:'';
+    position: absolute;
+
+    width: 88%;
+    height: 88%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    /* border: 1px solid yellow; */
+
+    box-shadow: var(--bs-in-top);
+    background: var(--cl-black-light);
+}
+
+.min-max-container .inner-circle::after {
+    content:'';
+    position: absolute;
+
+    width: 80%;
+    height: 80%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    /* border: 1px solid black; */
+
+    box-shadow: var(--bs-out-sm);
+    background: var(--cl-black-dark);
+}
+
+.min-max-rot h5 {
+    margin: auto 0;
+    margin-top: 3%;
+    color: white;
+    text-align: center;
+
+    text-shadow: var(--ts-text-border-dark);
+    font-family: var(--ff-dagger-square-font);
+}
+
+.min-max-rot.min-rot {
+    --min-max-rotation: -17;
+}
+
+.min-max-rot.max-rot {
+    --min-max-rotation: 17;
+}
+
+.min-max-container .top-cover {
+    position: absolute;
+
+    width: 10%;
+    height: 50%;
+
+    left: 72%;
+    transform: translate(-50%) rotate(29deg);
+
+    /* border: 1px solid yellow; */
+    background: var(--cl-black-dark);
+}
+
+.min-max-container .top-cover::before {
+    content:'';
+    display: block;
+    position: absolute;
+
+    width: 20%;
+    height: 54%;
+
+    left: -7%;
+    transform: translate(-50%) skewY(50deg) rotate(0deg);
+
+    /* border: 1px solid yellow; */
+    box-shadow: var(--bs-in-sm);
+    background: var(--cl-black-dark);
+}
+
+.shape-container .bottom-container {
+    position: absolute;
+
+    width: 81%;
+    height: 81%;
+
+    top: 61%;
+    left: 50%;
+    transform: translate(-50%);
+
+    border-radius: 4%;
+    /* border: 1px solid yellow; */
+
+    box-shadow: var(--bs-out);
+    background: var(--cl-black-dark);
+}
+
+.shape-container .bottom-container::before {
+    content: '';
+    display: block;
+    position: absolute;
+
+    width: 90%;
+    height: 90%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 2%;
+
+    box-shadow: var(--bs-out-sm);
+    background: var(--cl-black-dark);
+}
+
+.shape-container .bottom-container::after {
+    content: '';
+    display: block;
+    position: absolute;
+
+    width: 100%;
+    height: 90%;
+
+    top: 61.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 2%;
+
+    background: var(--cl-black-dark);
+}
+
+.bottom-container .bottom-box {
+    position: absolute;
+
+    width: 90%;
+    height: 90%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 2%;
+    /* border: 1px solid yellow; */
+
+    background: var(--cl-black-dark);
+
+    z-index: 1;
+    overflow: hidden;
+}
+
+.bottom-box .show-in-circle {
+    position: absolute;
+
+    width: 115%;
+    height: 115%;
+
+    top: -16%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    box-shadow: var(--bs-out-sm);
+    background: #090909;
+
+    overflow: hidden;
+}
+
+/* Shadow */
+.bottom-box .show-in-circle::before {
+    content:'';
+    position: absolute;
+
+    width: 100%;
+    height: 50%;
+
+    top: 39%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    box-shadow: 0px 0px 8px 5px black;
+
+    border: 3px solid black;
+}
+
+/* digital-clock-container */
+.show-in-circle .digital-clock-container {
+    --segment-opacity: 10;
+    --segment-color: white;
+
+    position: absolute;
+
+    width: 88%;
+    height: 88%;
+
+    left: 50%;
+    bottom: 0%;
+    transform: translateX(-50%);
+}
+
+.digital-clock-container .days-of-the-week {
+    position: absolute;
+
+    width: 100%;
+    height: 20%;
+
+    left: 2%;
+    top: 57%;
+
+    font-size: 1.5rem;
+
+    font-family: var(--ff-dot-font);
+    color: var(--segment-color);
+}
+
+.digital-clock-container .show-meridiem {
+    position: absolute;
+
+    width: 100%;
+    height: 20%;
+
+    top: 61%;
+    left: 21%;
+
+    color: white;
+    font-size: 0.7rem;
+    font-family: var(--ff-seven-seg-font);
+}
+
+.digital-clock-container .auto-EL-feature {
+    position: absolute;
+
+    width: 100%;
+    height: 20%;
+
+    top: 75%;
+    left: 10%;
+
+    color: white;
+    font-size: 0.7rem;
+    font-family: var(--ff-astro-font);
+}
+
+.digital-clock-container .digit-hr-min {
+    position: absolute;
+
+    width: 100%;
+    height: 50%;
+
+    top: 61%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    font-size: 1.5rem;
+    font-family: var(--ff-seven-seg-font);
+    color: var(--segment-color);
+}
+
+.digital-clock-container .digit-hr-min::before {
+    content:'88:88';
+    position: absolute;
+
+    width: 100%;
+    height: 50%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    opacity: calc(var(--segment-opacity) / 100);
+}
+
+.digital-clock-container .digit-sec {
+    position: absolute;
+
+    width: 100%;
+    height: 50%;
+
+    top: 61%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-align: right;
+
+    font-size: 1.3rem;
+    font-family: var(--ff-seven-seg-font);
+    color: var(--segment-color);
+}
+
+.digital-clock-container .digit-sec::before {
+    content:'88';
+    position: absolute;
+
+    width: 100%;
+    height: 50%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-align: right;
+
+    opacity: calc(var(--segment-opacity) / 100);
+}
+
+.digital-clock-container .digit-date {
+    position: absolute;
+
+    width: 100%;
+    height: 50%;
+
+    top: 85%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    font-size: 1rem;
+    font-family: var(--ff-seven-seg-font);
+    color: var(--segment-color);
+}
+
+.digital-clock-container .digit-date::before {
+    content:'88-88';
+    position: absolute;
+
+    width: 100%;
+    height: 50%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    opacity: calc(var(--segment-opacity) / 100);
+}
+
+@media (min-width: 480px) {
+    .digital-clock-container .days-of-the-week {
+        font-size: 2.3rem;
+    }
+
+    .digital-clock-container .show-meridiem {
+        font-size: 0.7rem;
+    }
+
+    .digital-clock-container .auto-EL-feature {
+        font-size: 0.7em;
+    }
+
+    .digital-clock-container .digit-hr-min {
+        font-size: 2.2rem;
+    }
+
+    .digital-clock-container .digit-sec {
+        font-size: 1.7rem;
+    }
+
+    .digital-clock-container .digit-date {
+        font-size: 1.4em;
+    }
+}
+
+.shape-container .bottom-cover-shadow {
+    position: absolute;
+
+    width: 55%;
+    height: 35%;
+
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    filter: drop-shadow(0px -2px 1px black);
+}
+
+.bottom-cover-shadow .bottom-cover {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: repeating-radial-gradient(
+    circle,
+    var(--cl-black-light),
+    var(--cl-black-light) 1px,
+    var(--cl-black-dark) 1px, 
+    var(--cl-black-dark) 6px
+    );
+
+    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
+}
+
+.bottom-cover h6 {
+    margin: 0 auto;
+    margin-top: 1%;
+    text-align: center;
+    color: var(--cl-white-light);
+    text-shadow: var(--ts-text-border-dark);
+}
+
+.analog-clock-container {
+    /* display: none; */
+    --clock-hand-opacity: 80;
+}
+
+.analog-clock-container .hr-hand-container {
+    --hr-hand-rotation: -58;
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    transform: rotate(calc(var(--hr-hand-rotation) * 1deg));
+
+    z-index: 4;
+
+    opacity: calc(var(--clock-hand-opacity) / 100);
+}
+
+.hr-hand-container .hr-hand-head {
+    position: absolute;
+
+    width: 9%;
+    height: 30%;
+
+    top: 24%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(45% 0, 55% 0, 85% 30%, 100% 100%, 0 100%, 15% 30%);
+    background: linear-gradient(calc((-1 * var(--hr-hand-rotation) + var(--shadow-deg)) * 1deg), var(--cl-white-light) 55%, var(--cl-white-dark) 77%);
+    box-shadow: var(--bs-clock-hands);
+}
+
+.hr-hand-container .hr-hand-head::before {
+    content: '';
+    position: absolute;
+
+    width: 45%;
+    height: 50%;
+
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(45% 0, 55% 0, 85% 20%, 100% 100%, 0 100%, 15% 20%);
+    background: var(--cl-clock-hand-head-inner);
+    box-shadow: var(--bs-clock-hands);
+}
+
+.hr-hand-container .hr-hand-tail {
+    position: absolute;
+
+    width: 12%;
+    height: 17%;
+
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(40% 0, 60% 0, 88% 0, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 12% 0);
+    background: rgb(10, 10, 10);
+}
+
+.hr-hand-container .hr-hand-tail::before {
+    content: '';
+    position: absolute;
+
+    width: 95%;
+    height: 97.5%;
+
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(40% 0, 60% 0, 88% 0, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 12% 0);
+    background: #666;
+}
+
+.hr-hand-container .hr-hand-tail::after {
+    content: '';
+    position: absolute;
+
+    width: 92%;
+    height: 96%;
+
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(40% 0, 60% 0, 88% 0, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 12% 0);
+    background: linear-gradient(calc((-1 * var(--hr-hand-rotation) + var(--shadow-deg)) * 1deg), rgb(8, 8, 8) 44%, rgb(24, 24, 24) 77%);
+}
+
+.analog-clock-container .min-hand-container {
+    --min-hand-rotation: 52;
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    transform: rotate(calc(var(--min-hand-rotation) * 1deg));
+
+    z-index: 5;
+
+    opacity: calc(var(--clock-hand-opacity) / 100);
+}
+
+.min-hand-container .min-hand-head {
+    position: absolute;
+
+    width: 7%;
+    height: 40%;
+
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(45% 0, 55% 0, 85% 20%, 100% 100%, 0 100%, 15% 20%);
+    background: linear-gradient(calc((-1 * var(--min-hand-rotation) + var(--shadow-deg)) * 1deg), var(--cl-white-light) 55%, var(--cl-white-dark) 77%);
+}
+
+.min-hand-container .min-hand-head::after {
+    content: '';
+    position: absolute;
+
+    width: 45%;
+    height: 52%;
+
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(45% 0, 55% 0, 85% 10%, 100% 100%, 0 100%, 15% 10%);
+    background: var(--cl-clock-hand-head-inner);
+    box-shadow: var(--bs-clock-hands);
+}
+
+.min-hand-container .min-hand-tail {
+    position: absolute;
+
+    width: 10%;
+    height: 17%;
+
+    top: 44%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(5% 38%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 95% 38%, 100% 90%, 90% 100%, 80% 100%, 20% 100%, 10% 100%, 0% 90%);
+    background: rgb(10, 10, 10);
+}
+
+.min-hand-container .min-hand-tail::before {
+    content: '';
+    position: absolute;
+
+    width: 95%;
+    height: 97.5%;
+
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(5% 38%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 95% 38%, 100% 90%, 90% 100%, 80% 100%, 20% 100%, 10% 100%, 0% 90%);
+    background: #666;
+}
+
+.min-hand-container .min-hand-tail::after {
+    content: '';
+    position: absolute;
+
+    width: 92.5%;
+    height: 96%;
+
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    clip-path: polygon(5% 38%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 95% 38%, 100% 90%, 90% 100%, 80% 100%, 20% 100%, 10% 100%, 0% 90%);
+    background: linear-gradient(calc((-1 * var(--min-hand-rotation) + var(--shadow-deg)) * 1deg), rgb(8, 8, 8) 44%, rgb(24, 24, 24) 77%);
+}

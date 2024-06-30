@@ -1,0 +1,56 @@
+<!-- Created by Aye Chan Aung Thwin -->
+<html>
+    <header>
+        <title>TimeConverter</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script defer src="js/common.js"></script>
+        <script defer src="js/swap-rotate-ui.js"></script>
+        <script defer src="js/calculate-time.js"></script>
+    </header>
+    <body>
+
+        <div class="main-container">
+            <span class="title" id="title">Decimal Hour ➡ HH:MM:SS Converter</span>
+            <div class=input-container>
+                <div class="swap-container">
+                    <div class="dec-hr-container">
+                        <span class="dec-hr-text">Decimal Hour</span>
+                        <input class="dec-hr input-design" id="dec-hr" type="text" pattern="\*d" min="0.0" step="any" placeholder="0.0" autofocus='' value='0.0'>
+                    </div> 
+
+                    <button class="swap-btn no-design-btn btn-design-black-ccl" onclick="swapBtnClicked(); swapDetector();">
+                        <span class="swap-text-size swap-font-family">SWAP</span>
+                    </button>
+                    
+                    <div class="hr-min-sec-container">
+                        <div class="hr-div time-section">
+                            <span>Hour</span>
+                            <input class="hr time-input input-design" id="hr" type="text" pattern="\*d" min="0" maxlength="3" oninput="this.value=arrangeNumber(this.value)" placeholder="00" autofocus='' value='00'>
+                        </div>
+                        
+                        <span class="span-text span-text-pos-1">:</span>
+                        
+                        <div class="min-div time-section">
+                            <span>Minute</span>
+                            <input class="min time-input input-design" id="min" type="text" pattern="\*d" min="0" max="59" maxlength="3" oninput="this.value=arrangeNumber(this.value)" placeholder="00" autofocus='' value='00'>
+                        </div>
+                        
+                        <span class="span-text span-text-pos-2">:</span>
+                        
+                        <div class="sec-div time-section">
+                            <span>Second</span>
+                            <input class="sec time-input input-design" id="sec" type="text" pattern="\*d" min="0" max="59" maxlength="3" oninput="this.value=arrangeNumber(this.value)" placeholder="00" autofocus='' value='00'>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+
+            <div class="calculate-btn-container">
+                <button class="calculate-btn no-design-btn btn-design-black-rect" onclick="onCalculateBtnClicked()">
+                    <span>Calculate</span>
+                </button>
+            </div>
+        </div>
+    </body>
+</html>
